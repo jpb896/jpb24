@@ -62,11 +62,27 @@ fun Jpb24App() {
             }
         }
     ) {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            Greeting(
-                name = "Android",
-                modifier = Modifier.padding(innerPadding)
-            )
+        if (currentDestination.label == "Home") {
+            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Greeting(
+                    name = "Home",
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
+        } else if (currentDestination.label == "Hardware") {
+            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Greeting(
+                    name = "Hardware",
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
+        } else {
+            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Greeting(
+                    name = "Software",
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
         }
     }
 }
