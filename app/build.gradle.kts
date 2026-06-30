@@ -6,15 +6,15 @@ plugins {
 android {
     namespace = "com.jpb.jpb24x"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
+        version = release(37) {
+            minorApiLevel = 0
         }
     }
 
     defaultConfig {
         applicationId = "com.jpb.jpb24x"
         minSdk = 27
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "26"
 
