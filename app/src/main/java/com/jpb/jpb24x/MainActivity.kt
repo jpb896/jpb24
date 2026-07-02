@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
@@ -67,7 +68,7 @@ fun Jpb24App() {
             DeviceName.init(LocalContext.current)
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                 Card(
-                    modifier = Modifier.padding(innerPadding))
+                    modifier = Modifier.fillMaxWidth())
                 {
                     Column {
                             Text(text = DeviceName.getDeviceName())
