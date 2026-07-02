@@ -26,9 +26,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import com.jaredrummler.android.device.DeviceName
 import com.jpb.jpb24x.ui.theme.Jpb24Theme
 
 class MainActivity : ComponentActivity() {
@@ -66,12 +68,13 @@ fun Jpb24App() {
         }
     ) {
         if (currentDestination.label == "Home") {
+            DeviceName.init(LocalContext.current)
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                 Card(
                     modifier = Modifier.padding(innerPadding))
                 {
                     Column() {
-                            Text(text = "Device model")
+                            Text(text = DeviceName.getDeviceName())
                             Text(text = "OS version")
                             Text(text = "Security patch")
                     }
