@@ -25,7 +25,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import com.jaredrummler.android.device.DeviceName
 import com.jpb.jpb24x.ui.theme.Jpb24Theme
@@ -79,17 +78,11 @@ fun Jpb24App() {
             }
         } else if (currentDestination.label == "Hardware") {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                Greeting(
-                    name = "Hardware",
-                    modifier = Modifier.padding(innerPadding)
-                )
+
             }
         } else {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                Greeting(
-                    name = "Software",
-                    modifier = Modifier.padding(innerPadding)
-                )
+
             }
         }
     }
@@ -102,20 +95,4 @@ enum class AppDestinations(
     HOME("Home", Icons.Filled.Home),
     FAVORITES("Hardware", Icons.Filled.Memory),
     PROFILE("Software", Icons.Filled.Apps),
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Jpb24Theme {
-        Greeting("Android")
-    }
 }
