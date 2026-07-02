@@ -70,7 +70,7 @@ fun Jpb24App() {
                 Card(
                     modifier = Modifier.padding(innerPadding))
                 {
-                    Column() {
+                    Column {
                             Text(text = DeviceName.getDeviceName())
                             Text(text = "Android " + Build.VERSION.RELEASE)
                             Text(text = Build.VERSION.SECURITY_PATCH)
