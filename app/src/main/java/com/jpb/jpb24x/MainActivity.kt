@@ -4,12 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Memory
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -64,10 +67,15 @@ fun Jpb24App() {
     ) {
         if (currentDestination.label == "Home") {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                Greeting(
-                    name = "Home",
-                    modifier = Modifier.padding(innerPadding)
-                )
+                Card(
+                    modifier = Modifier.padding(innerPadding))
+                {
+                    Column() {
+                            Text(text = "Device model")
+                            Text(text = "OS version")
+                            Text(text = "Security patch")
+                    }
+                }
             }
         } else if (currentDestination.label == "Hardware") {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
