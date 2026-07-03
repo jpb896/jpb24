@@ -85,11 +85,31 @@ fun Jpb24App() {
             }
         } else if (currentDestination.label == "Hardware") {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(innerPadding))
+                {
+                    Column {
+                        Text(text = "CPU", style = Typography.displayMediumEmphasized)
+                        Text(text = "Core count", style = Typography.headlineSmallEmphasized)
+                        Text(text = "Process (nm)", style = Typography.bodyLargeEmphasized)
+                    }
+                }
             }
         } else {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(innerPadding))
+                {
+                    Column {
+                        Text(text = "Android version", style = Typography.displayMediumEmphasized)
+                        Text(text = "custom firmware version (if one exists)", style = Typography.headlineSmallEmphasized)
+                        Text(text = "SPL or API level", style = Typography.bodyLargeEmphasized)
+                    }
+                }
             }
         }
     }
