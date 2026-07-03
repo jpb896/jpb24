@@ -78,7 +78,7 @@ fun Jpb24App() {
                         .padding(innerPadding))
                 {
                     Column(modifier = Modifier.padding(8.dp)) {
-                            Text(text = DeviceName.getDeviceName(), style = Typography.displayMediumEmphasized)
+                            Text(text = DeviceName.getDeviceName(), style = Typography.displaySmallEmphasized)
                             Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.headlineSmallEmphasized)
                             Text(text = Build.VERSION.SECURITY_PATCH, style = Typography.bodyLargeEmphasized)
                     }
@@ -93,7 +93,7 @@ fun Jpb24App() {
                 {
                     Column(modifier = Modifier.padding(8.dp)) {
                         if (Build.VERSION.SDK_INT >= 31) {
-                            Text(text = Build.SOC_MODEL, style = Typography.displayMediumEmphasized)
+                            Text(text = Build.SOC_MODEL, style = Typography.displaySmallEmphasized)
                         } else {
                             Text(text = "Build.SOC_MODEL is not available on Android 11 or lower. Support for fetching the CPU name on these devices will be added soon!", style = Typography.displayMediumEmphasized)
                         }
@@ -110,7 +110,7 @@ fun Jpb24App() {
                         .padding(innerPadding))
                 {
                     Column(modifier = Modifier.padding(8.dp)) {
-                        Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.displayMediumEmphasized)
+                        Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.displaySmallEmphasized)
                         Text(text = "custom firmware version (if one exists)", style = Typography.headlineSmallEmphasized)
                         Text(text = "SPL or API level", style = Typography.bodyLargeEmphasized)
                     }
