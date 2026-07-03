@@ -32,6 +32,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import com.jaredrummler.android.device.DeviceName
+import com.jpb.jpb24x.helpers.SoCHelper
 import com.jpb.jpb24x.ui.theme.Jpb24Theme
 import com.jpb.jpb24x.ui.theme.Typography
 
@@ -97,7 +98,7 @@ fun Jpb24App() {
                         } else {
                             Text(text = "Build.SOC_MODEL is not available on Android 11 or lower. Support for fetching the CPU name on these devices will be added soon!", style = Typography.displayMediumEmphasized)
                         }
-                        Text(text = "Core count", style = Typography.headlineSmallEmphasized)
+                        Text(text = SoCHelper.calcCpuCoreCount().toString() + " cores", style = Typography.headlineSmallEmphasized)
                         Text(text = "Process (nm)", style = Typography.bodyLargeEmphasized)
                     }
                 }
