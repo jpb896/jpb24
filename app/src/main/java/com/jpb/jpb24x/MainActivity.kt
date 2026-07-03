@@ -109,7 +109,7 @@ fun Jpb24App() {
                         .padding(innerPadding))
                 {
                     Column {
-                        Text(text = "Android version", style = Typography.displayMediumEmphasized)
+                        Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.displayMediumEmphasized)
                         Text(text = "custom firmware version (if one exists)", style = Typography.headlineSmallEmphasized)
                         Text(text = "SPL or API level", style = Typography.bodyLargeEmphasized)
                     }
