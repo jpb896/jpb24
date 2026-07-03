@@ -15,6 +15,8 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialExpressiveTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -26,9 +28,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import com.jaredrummler.android.device.DeviceName
 import com.jpb.jpb24x.ui.theme.Jpb24Theme
+import com.jpb.jpb24x.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,9 +75,9 @@ fun Jpb24App() {
                     modifier = Modifier.fillMaxWidth())
                 {
                     Column {
-                            Text(text = DeviceName.getDeviceName())
-                            Text(text = "Android " + Build.VERSION.RELEASE)
-                            Text(text = Build.VERSION.SECURITY_PATCH)
+                            Text(text = DeviceName.getDeviceName(), style = Typography.displayMediumEmphasized)
+                            Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.headlineSmallEmphasized)
+                            Text(text = Build.VERSION.SECURITY_PATCH, style = Typography.bodyLargeEmphasized)
                     }
                 }
             }
