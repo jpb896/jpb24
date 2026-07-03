@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import androidx.compose.ui.unit.dp
 import com.jaredrummler.android.device.DeviceName
 import com.jpb.jpb24x.ui.theme.Jpb24Theme
 import com.jpb.jpb24x.ui.theme.Typography
@@ -76,7 +77,7 @@ fun Jpb24App() {
                         .fillMaxWidth()
                         .padding(innerPadding))
                 {
-                    Column {
+                    Column(modifier = Modifier.padding(8.dp)) {
                             Text(text = DeviceName.getDeviceName(), style = Typography.displayMediumEmphasized)
                             Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.headlineSmallEmphasized)
                             Text(text = Build.VERSION.SECURITY_PATCH, style = Typography.bodyLargeEmphasized)
@@ -90,7 +91,7 @@ fun Jpb24App() {
                         .fillMaxWidth()
                         .padding(innerPadding))
                 {
-                    Column {
+                    Column(modifier = Modifier.padding(8.dp)) {
                         if (Build.VERSION.SDK_INT >= 31) {
                             Text(text = Build.SOC_MODEL, style = Typography.displayMediumEmphasized)
                         } else {
@@ -108,7 +109,7 @@ fun Jpb24App() {
                         .fillMaxWidth()
                         .padding(innerPadding))
                 {
-                    Column {
+                    Column(modifier = Modifier.padding(8.dp)) {
                         Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.displayMediumEmphasized)
                         Text(text = "custom firmware version (if one exists)", style = Typography.headlineSmallEmphasized)
                         Text(text = "SPL or API level", style = Typography.bodyLargeEmphasized)
