@@ -72,7 +72,9 @@ fun Jpb24App() {
             DeviceName.init(LocalContext.current)
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                 Card(
-                    modifier = Modifier.fillMaxWidth())
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(innerPadding))
                 {
                     Column {
                             Text(text = DeviceName.getDeviceName(), style = Typography.displayMediumEmphasized)
