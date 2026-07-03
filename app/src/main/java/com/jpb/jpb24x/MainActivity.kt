@@ -91,7 +91,11 @@ fun Jpb24App() {
                         .padding(innerPadding))
                 {
                     Column {
-                        Text(text = "CPU", style = Typography.displayMediumEmphasized)
+                        if (Build.VERSION.SDK_INT >= 31) {
+                            Text(text = Build.SOC_MODEL, style = Typography.displayMediumEmphasized)
+                        } else {
+                            Text(text = "Build.SOC_MODEL is not available on Android 11 or lower. Support for fetching the CPU name on these devices will be added soon!", style = Typography.displayMediumEmphasized)
+                        }
                         Text(text = "Core count", style = Typography.headlineSmallEmphasized)
                         Text(text = "Process (nm)", style = Typography.bodyLargeEmphasized)
                     }
