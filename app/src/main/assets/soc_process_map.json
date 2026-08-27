@@ -4,76 +4,87 @@
     "marketing_name": "Snapdragon 8 Gen 3",
     "process_node": "4 nm",
     "vendor": "Qualcomm",
-    "foundry": "TSMC"
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
   },
   {
     "soc_id": "SM8750",
     "marketing_name": "Snapdragon 8 Gen 4 / 8 Elite",
     "process_node": "3 nm",
     "vendor": "Qualcomm",
-    "foundry": "TSMC"
+    "foundry": "TSMC",
+    "fab": "TSMC N3E"
   },
   {
     "soc_id": "gs101",
     "marketing_name": "Google Tensor G1",
     "process_node": "5 nm",
     "vendor": "Google",
-    "foundry": "Samsung"
+    "foundry": "Samsung",
+    "fab": "Samsung 5LPE"
   },
   {
     "soc_id": "gs201",
     "marketing_name": "Google Tensor G2",
     "process_node": "5 nm",
     "vendor": "Google",
-    "foundry": "Samsung"
+    "foundry": "Samsung",
+    "fab": "Samsung 5LPE"
   },
   {
     "soc_id": "zuma",
     "marketing_name": "Google Tensor G3",
     "process_node": "4 nm",
     "vendor": "Google",
-    "foundry": "Samsung"
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPP"
   },
   {
     "soc_id": "zumapro",
     "marketing_name": "Google Tensor G4",
     "process_node": "4 nm",
     "vendor": "Google",
-    "foundry": "Samsung"
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPP+"
   },
   {
     "soc_id": "laguna",
     "marketing_name": "Google Tensor G5",
     "process_node": "3 nm",
     "vendor": "Google",
-    "foundry": "TSMC"
+    "foundry": "TSMC",
+    "fab": "TSMC N3P"
   },
   {
     "soc_id": "malibu",
     "marketing_name": "Google Tensor G6",
     "process_node": "3 nm",
     "vendor": "Google",
-    "foundry": "TSMC"
+    "foundry": "TSMC",
+    "fab": "TSMC N3P"
   },
   {
     "soc_id": "mt6989",
     "marketing_name": "Dimensity 9300",
     "process_node": "4 nm",
     "vendor": "MediaTek",
-    "foundry": "TSMC"
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
   },
   {
     "soc_id": "mt8792",
     "marketing_name": "Dimensity 8350",
     "process_node": "4 nm",
     "vendor": "MediaTek",
-    "foundry": "TSMC"
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
   },
   {
     "soc_id": "exynos2400",
     "marketing_name": "Exynos 2400",
     "process_node": "4 nm",
     "vendor": "Samsung",
-    "foundry": "Samsung"
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPP+"
   }
 ]
