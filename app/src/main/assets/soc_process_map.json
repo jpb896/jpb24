@@ -12,10 +12,40 @@
     "OEM": "Qualcomm"
   },
   {
-    "soc_id": "tensor_g3",
+    "soc_id": "gs101",
+    "marketing_name": "Google Tensor G1",
+    "process_node": "5 nm",
+    "OEM": "Google & Samsung"
+  },
+  {
+    "soc_id": "gs201",
+    "marketing_name": "Google Tensor G2",
+    "process_node": "5 nm",
+    "OEM": "Google & Samsung"
+  },
+  {
+    "soc_id": "zuma",
     "marketing_name": "Google Tensor G3",
     "process_node": "4 nm",
     "OEM": "Google & Samsung"
+  },
+  {
+    "soc_id": "zumapro",
+    "marketing_name": "Google Tensor G4",
+    "process_node": "4 nm",
+    "OEM": "Google & Samsung"
+  },
+  {
+    "soc_id": "laguna",
+    "marketing_name": "Google Tensor G5",
+    "process_node": "3 nm",
+    "OEM": "Google"
+  },
+  {
+    "soc_id": "malibu",
+    "marketing_name": "Google Tensor G6",
+    "process_node": "3 nm",
+    "OEM": "Google"
   },
   {
     "soc_id": "mt6989",
