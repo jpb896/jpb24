@@ -1,0 +1,32 @@
+[
+  {
+    "soc_id": "SM8650",
+    "marketing_name": "Snapdragon 8 Gen 3",
+    "process_node": "4 nm",
+    "oem": "Qualcomm"
+  },
+  {
+    "soc_id": "SM8750",
+    "marketing_name": "Snapdragon 8 Gen 4 / 8 Elite",
+    "process_node": "3 nm",
+    "OEM": "Qualcomm"
+  },
+  {
+    "soc_id": "tensor_g3",
+    "marketing_name": "Google Tensor G3",
+    "process_node": "4 nm",
+    "OEM": "Google & Samsung"
+  },
+  {
+    "soc_id": "mt6989",
+    "marketing_name": "Dimensity 9300",
+    "process_node": "4 nm",
+    "OEM": "MediaTek"
+  },
+  {
+    "soc_id": "exynos2400",
+    "marketing_name": "Exynos 2400",
+    "process_node": "4 nm",
+    "OEM": "Samsung"
+  }
+]
