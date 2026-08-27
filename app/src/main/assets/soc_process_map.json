@@ -54,6 +54,12 @@
     "OEM": "MediaTek"
   },
   {
+    "soc_id": "mt8792",
+    "marketing_name": "Dimensity 8350",
+    "process_node": "4 nm",
+    "OEM": "MediaTek"
+  },
+  {
     "soc_id": "exynos2400",
     "marketing_name": "Exynos 2400",
     "process_node": "4 nm",
