@@ -160,6 +160,462 @@
     "fab": "TSMC N3P"
   },
   {
+    "soc_id": "MSM8905",
+    "marketing_name": "Snapdragon 205",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8208",
+    "marketing_name": "Snapdragon 208",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8909",
+    "marketing_name": "Snapdragon 210/212",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "QM215",
+    "marketing_name": "Qualcomm 215",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8916",
+    "marketing_name": "Snapdragon 410/412",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC and SMIC",
+    "fab": "TSMC 28LP or SMIC fab"
+  },
+  {
+    "soc_id": "MSM8929",
+    "marketing_name": "Snapdragon 415",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8917",
+    "marketing_name": "Snapdragon 425",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8920",
+    "marketing_name": "Snapdragon 427",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8937",
+    "marketing_name": "Snapdragon 430",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8940",
+    "marketing_name": "Snapdragon 435",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "SDM429",
+    "marketing_name": "Snapdragon 429",
+    "process_node": "12 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 12FFC"
+  },
+  {
+    "soc_id": "SDM439",
+    "marketing_name": "Snapdragon 439",
+    "process_node": "12 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 12FFC"
+  },
+  {
+    "soc_id": "SDM450",
+    "marketing_name": "Snapdragon 450",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SM4250",
+    "marketing_name": "Snapdragon 460",
+    "process_node": "11 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 11LPP"
+  },
+  {
+    "soc_id": "SM4350",
+    "marketing_name": "Snapdragon 480/480+",
+    "process_node": "8 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 8LPP"
+  },
+  {
+    "soc_id": "SM4375",
+    "marketing_name": "Snapdragon 4 Gen 1",
+    "process_node": "6 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N6"
+  },
+  {
+    "soc_id": "SM4450",
+    "marketing_name": "Snapdragon 4 Gen 2/Gen 4",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM4635",
+    "marketing_name": "Snapdragon 4s Gen 2",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM4850",
+    "marketing_name": "Snapdragon 4 Gen 5",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "MSM8936",
+    "marketing_name": "Snapdragon 610",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8939",
+    "marketing_name": "Snapdragon 615/616",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8952",
+    "marketing_name": "Snapdragon 617",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28LP"
+  },
+  {
+    "soc_id": "MSM8953",
+    "marketing_name": "Snapdragon 625/626",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SDM630",
+    "marketing_name": "Snapdragon 630",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SDM632",
+    "marketing_name": "Snapdragon 632",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SDM636",
+    "marketing_name": "Snapdragon 636",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "MSM8956",
+    "marketing_name": "Snapdragon 650",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28HPM"
+  },
+  {
+    "soc_id": "MSM8976",
+    "marketing_name": "Snapdragon 652/653",
+    "process_node": "28 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC 28HPM"
+  },
+  {
+    "soc_id": "SDM660",
+    "marketing_name": "Snapdragon 660",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SDA660",
+    "marketing_name": "Snapdragon 660",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SM6115",
+    "marketing_name": "Snapdragon 662",
+    "process_node": "11 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 11LPP"
+  },
+  {
+    "soc_id": "SM6125",
+    "marketing_name": "Snapdragon 665",
+    "process_node": "11 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 11LPP"
+  },
+  {
+    "soc_id": "SDM670",
+    "marketing_name": "Snapdragon 670",
+    "process_node": "10 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 10LPP"
+  },
+  {
+    "soc_id": "SM6150",
+    "marketing_name": "Snapdragon 675/678",
+    "process_node": "11 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 11LPP"
+  },
+  {
+    "soc_id": "SM6225",
+    "marketing_name": "Snapdragon 680/685",
+    "process_node": "11 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N6"
+  },
+  {
+    "soc_id": "SM6350",
+    "marketing_name": "Snapdragon 690",
+    "process_node": "8 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 8LPP"
+  },
+  {
+    "soc_id": "SM6375",
+    "marketing_name": "Snapdragon 695",
+    "process_node": "6 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N6"
+  },
+  {
+    "soc_id": "SM6450",
+    "marketing_name": "Snapdragon 6 Gen 1",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPP"
+  },
+  {
+    "soc_id": "SM6475",
+    "marketing_name": "Snapdragon 6 Gen 3",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM6650",
+    "marketing_name": "Snapdragon 6 Gen 4",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SM6435",
+    "marketing_name": "Snapdragon 6s Gen 4",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM6850",
+    "marketing_name": "Snapdragon 6 Gen 5",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SDM710",
+    "marketing_name": "Snapdragon 710",
+    "process_node": "10 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 10LPP"
+  },
+  {
+    "soc_id": "SDM712",
+    "marketing_name": "Snapdragon 712",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 10LPP"
+  },
+  {
+    "soc_id": "SM7125",
+    "marketing_name": "Snapdragon 720G",
+    "process_node": "8 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 8LPP"
+  },
+  {
+    "soc_id": "SM7150",
+    "marketing_name": "Snapdragon 730/730G/732G",
+    "process_node": "8 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 8LPP"
+  },
+  {
+    "soc_id": "SM7225",
+    "marketing_name": "Snapdragon 750G",
+    "process_node": "8 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 8LPP"
+  },
+  {
+    "soc_id": "SM7250",
+    "marketing_name": "Snapdragon 765/765G/768G",
+    "process_node": "7 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 7LPP"
+  },
+  {
+    "soc_id": "SM7325",
+    "marketing_name": "Snapdragon 778G/778G+/782G",
+    "process_node": "6 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N6"
+  },
+  {
+    "soc_id": "SM7350",
+    "marketing_name": "Snapdragon 780G",
+    "process_node": "5 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 5LPE"
+  },
+  {
+    "soc_id": "SM7450",
+    "marketing_name": "Snapdragon 7 Gen 1",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM7475",
+    "marketing_name": "Snapdragon 7+ Gen 2",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4"
+  },
+  {
+    "soc_id": "SM7435",
+    "marketing_name": "Snapdragon 7s Gen 2",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM7550",
+    "marketing_name": "Snapdragon 7 Gen 3",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SM7675",
+    "marketing_name": "Snapdragon 7+ Gen 3",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SM7635",
+    "marketing_name": "Snapdragon 7s Gen 3/7s Gen 4",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SM7750",
+    "marketing_name": "Snapdragon 7 Gen 4",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
     "soc_id": "gs101",
     "marketing_name": "Google Tensor G1",
     "process_node": "5 nm",
