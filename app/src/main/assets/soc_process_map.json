@@ -1,7 +1,127 @@
 [
   {
+    "soc_id": "MSM8992",
+    "marketing_name": "Snapdragon 808",
+    "process_node": "20 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "unknown"
+  },
+  {
+    "soc_id": "MSM8994",
+    "marketing_name": "Snapdragon 810",
+    "process_node": "20 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "unknown"
+  },
+  {
+    "soc_id": "MSM8996",
+    "marketing_name": "Snapdragon 820/821",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "MSM8998",
+    "marketing_name": "Snapdragon 835",
+    "process_node": "10 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 10LPE"
+  },
+  {
+    "soc_id": "MSM8996",
+    "marketing_name": "Snapdragon 820/821",
+    "process_node": "14 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 14LPP"
+  },
+  {
+    "soc_id": "SDM845",
+    "marketing_name": "Snapdragon 845",
+    "process_node": "10 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 10LPP"
+  },
+  {
+    "soc_id": "SDM850",
+    "marketing_name": "Snapdragon 850",
+    "process_node": "10 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 10LPP"
+  },
+  {
+    "soc_id": "SM8150",
+    "marketing_name": "Snapdragon 855/855+/860",
+    "process_node": "7 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N7"
+  },
+  {
+    "soc_id": "SM8250",
+    "marketing_name": "Snapdragon 865/865+/870",
+    "process_node": "7 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N7P"
+  },
+  {
+    "soc_id": "SM8350",
+    "marketing_name": "Snapdragon 888/888+",
+    "process_node": "5 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 5LPE"
+  },
+  {
+    "soc_id": "SM8450",
+    "marketing_name": "Snapdragon 8 Gen 1",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "Samsung",
+    "fab": "Samsung 4LPX"
+  },
+  {
+    "soc_id": "SM8475",
+    "marketing_name": "Snapdragon 8+ Gen 1",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4"
+  },
+  {
+    "soc_id": "SM8425",
+    "marketing_name": "Snapdragon 8+ Gen 1 4G",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4"
+  },
+  {
+    "soc_id": "SM8550",
+    "marketing_name": "Snapdragon 8 Gen 2",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4"
+  },
+  {
     "soc_id": "SM8650",
     "marketing_name": "Snapdragon 8 Gen 3",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SM8635",
+    "marketing_name": "Snapdragon 8s Gen 3",
     "process_node": "4 nm",
     "vendor": "Qualcomm",
     "foundry": "TSMC",
@@ -14,6 +134,30 @@
     "vendor": "Qualcomm",
     "foundry": "TSMC",
     "fab": "TSMC N3E"
+  },
+  {
+    "soc_id": "SM8735",
+    "marketing_name": "Snapdragon 8s Gen 4",
+    "process_node": "4 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N4P"
+  },
+  {
+    "soc_id": "SM8850",
+    "marketing_name": "Snapdragon 8 Elite Gen 5",
+    "process_node": "3 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N3P"
+  },
+  {
+    "soc_id": "SM8845",
+    "marketing_name": "Snapdragon 8 Gen 5",
+    "process_node": "3 nm",
+    "vendor": "Qualcomm",
+    "foundry": "TSMC",
+    "fab": "TSMC N3P"
   },
   {
     "soc_id": "gs101",
