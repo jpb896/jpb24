@@ -7,7 +7,7 @@ android {
     namespace = "com.jpb.jpb24x"
     compileSdk {
         version = release(37) {
-            minorApiLevel = 1
+            minorApiLevel = 2
         }
     }
 
