@@ -8,6 +8,7 @@ kotlin = "2.4.10"
 composeBom = "2026.08.00"
 deviceNames = "2.1.1"
 kt-json = "2.4.20"
+foundationLayout = "1.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,6 +26,7 @@ androidx-compose-material3-icons-extended = { group = "androidx.compose.material
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
 device-names = { group = "com.jaredrummler", name = "android-device-names", version.ref = "deviceNames" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 
 
 [plugins]
