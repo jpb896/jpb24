@@ -352,6 +352,41 @@ fun Jpb24App() {
                                         text = customFirmware.details,
                                         style = Typography.displaySmallEmphasized
                                     )
+                                    customFirmware.fullVer?.let {
+                                        Text(
+                                            text = "Version: $it",
+                                        )
+                                    }
+                                    customFirmware.codename?.let {
+                                        Text(
+                                            text = "Codename: $it",
+                                        )
+                                    }
+                                    customFirmware.region?.let {
+                                        Text(
+                                            text = "Device region: $it",
+                                        )
+                                    }
+                                    customFirmware.releaseType?.let {
+                                        Text(
+                                            text = "Release track: $it",
+                                        )
+                                    }
+                                    customFirmware.sep?.let {
+                                        Text(
+                                            text = "OneUI SDK version: $it",
+                                        )
+                                    }
+                                    customFirmware.sem?.let {
+                                        Text(
+                                            text = "Samsung Extension Mechanism version: $it",
+                                        )
+                                    }
+                                    customFirmware.sehi?.let {
+                                        Text(
+                                            text = "Samsung Extension History Interface version: $it",
+                                        )
+                                    }
                                 }
                             }
                         }
