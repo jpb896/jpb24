@@ -320,7 +320,7 @@ fun Jpb24App() {
                     }
 
                     else -> { // Software Tab
-                        val firmwareMeta = remember(context) { detectCustomFirmware() }
+                        val customFirmware = remember { com.jpb.jpb24x.helpers.CustomFirmwareDetectionHelper.detectAdvancedFirmware() }
 
                         // Base System Card
                         Card(modifier = Modifier.fillMaxWidth()) {
@@ -341,15 +341,15 @@ fun Jpb24App() {
                         }
 
                         // Custom Firmware Card (Conditional Rendering)
-                        if (firmwareMeta != null) {
+                        if (customFirmware != null) {
                             Card(modifier = Modifier.fillMaxWidth()) {
                                 Column(modifier = Modifier.padding(16.dp)) {
                                     Text(
-                                        text = firmwareMeta.title,
+                                        text = customFirmware.title,
                                         style = Typography.headlineSmallEmphasized
                                     )
                                     Text(
-                                        text = firmwareMeta.details,
+                                        text = customFirmware.details,
                                         style = Typography.displaySmallEmphasized
                                     )
                                 }
@@ -365,51 +365,6 @@ fun Jpb24App() {
 /**
  * Data wrapper mapping custom system property signatures back to Compose layout components.
  */
-data class FirmwareMetadata(val title: String, val details: String)
-
-/**
- * Decoupled processing engine. Evaluates platform property arguments cleanly outside UI rendering chains.
- */
-/**
- * Decoupled processing engine. Evaluates platform property arguments cleanly
- * by accessing hidden system properties via runtime reflection.
- */
-private fun detectCustomFirmware(): FirmwareMetadata? {
-    val manufacturer = Build.MANUFACTURER
-
-    if (manufacturer.equals("HUAWEI", ignoreCase = true)) {
-        val buildVersion = getSystemPropertyReflection("ro.huawei.build.version.incremental")
-        return if (buildVersion.isNotEmpty()) FirmwareMetadata(title = "EMUI", details = buildVersion) else null
-    }
-
-    if (manufacturer.equals("Xiaomi", ignoreCase = true)) {
-        val hyperOsCheck = getSystemPropertyReflection("ro.mi.os.version.incremental")
-        return if (hyperOsCheck.contains("OS", ignoreCase = true)) {
-            FirmwareMetadata(title = "HyperOS", details = hyperOsCheck)
-        } else {
-            val miuiCheck = getSystemPropertyReflection("ro.build.version.incremental")
-            if (miuiCheck.contains("XM", ignoreCase = true)) {
-            FirmwareMetadata(title = "MIUI", details = miuiCheck)
-        } else {
-                null
-            }
-        }
-    }
-
-    if (manufacturer.equals("Amazon", ignoreCase = true)) {
-        val fireOsCheck = getSystemPropertyReflection("ro.build.mktg.fireos").replace("Fire OS ", "")
-        return if (fireOsCheck.isNotEmpty()) FirmwareMetadata(title = "FireOS", details = fireOsCheck) else null
-    }
-
-    val caesiumCheck = getSystemPropertyReflection("ro.caesium.version")
-    if (caesiumCheck.isNotEmpty()) {
-        return FirmwareMetadata(title = "CaesiumOS", details = caesiumCheck)
-    }
-
-    // Corresponds to legacy firmwareCard.visibility = View.GONE
-    return null
-}
-
 /**
  * Invokes the hidden android.os.SystemProperties class through low-level Java Reflection.
  * This completely removes the need for an external 'SystemPropertiesProxy' file dependency.
