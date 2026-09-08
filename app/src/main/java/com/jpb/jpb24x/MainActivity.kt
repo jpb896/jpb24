@@ -1,6 +1,8 @@
 package com.jpb.jpb24x
 
 import android.annotation.SuppressLint
+import android.opengl.EGL14
+import android.opengl.GLES20
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,6 +27,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,6 +48,8 @@ import com.jpb.jpb24x.ui.theme.Jpb24Theme
 import com.jpb.jpb24x.ui.theme.Typography
 import com.jpb.jpb24x.viewmodels.SystemInfoViewModel
 import com.jpb.jpb24x.viewmodels.SocUiState
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,6 +77,17 @@ fun Jpb24App() {
         repository,
         hardwareProvider
     ) }
+
+    // State holders for asynchronous GPU property fetching
+    var gpuRenderer by remember { mutableStateOf("Fetching...") }
+    var gpuVendor by remember { mutableStateOf("Fetching...") }
+
+    // Safe context query block isolates processing from the main composition stream
+    LaunchedEffect(Unit) {
+        val info = getGpuHardwareSpecsAsync()
+        gpuRenderer = info.first
+        gpuVendor = info.second
+    }
 
     NavigationSuiteScaffold(
         navigationSuiteItems = {
@@ -278,6 +294,21 @@ fun Jpb24App() {
                                 )
                             }
                         }
+                        Card(modifier = Modifier.fillMaxWidth()) {
+                            Column(
+                                modifier = Modifier.padding(16.dp),
+                                verticalArrangement = Arrangement.spacedBy(4.dp)
+                            ) {
+                                Text(
+                                    text = gpuRenderer, // E.g., Adreno (TM) 740, Mali-G715
+                                    style = Typography.displaySmallEmphasized
+                                )
+                                Text(
+                                    text = "Vendor: $gpuVendor", // E.g., Qualcomm, ARM
+                                    style = Typography.bodyLargeEmphasized
+                                )
+                            }
+                        }
                     }
                     else -> {
                         Card(modifier = Modifier.fillMaxWidth()) {
@@ -292,6 +323,31 @@ fun Jpb24App() {
             }
         }
     }
+}
+
+private suspend fun getGpuHardwareSpecsAsync(): Pair<String, String> = withContext(Dispatchers.Default) {
+    val dpy = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY)
+    val vers = IntArray(2)
+    EGL14.eglInitialize(dpy, vers, 0, vers, 1)
+    val configAttr = intArrayOf(EGL14.EGL_RENDERABLE_TYPE, EGL14.EGL_OPENGL_ES2_BIT,EGL14.EGL_RED_SIZE, 8,EGL14.EGL_GREEN_SIZE, 8,EGL14.EGL_BLUE_SIZE, 8,EGL14.EGL_NONE)
+    val configs = arrayOfNulls<android.opengl.EGLConfig>(1)
+    val numConfig = IntArray(1)
+    EGL14.eglChooseConfig(dpy, configAttr, 0, configs, 0, 1, numConfig, 0)
+    val config = configs[0]
+    val surfAttr = intArrayOf(EGL14.EGL_WIDTH, 1, EGL14.EGL_HEIGHT, 1, EGL14.EGL_NONE)
+    val surf = EGL14.eglCreatePbufferSurface(dpy, config, surfAttr, 0)
+    val ctxAttr = intArrayOf(EGL14.EGL_CONTEXT_CLIENT_VERSION, 2, EGL14.EGL_NONE)
+    val ctx = EGL14.eglCreateContext(dpy, config, EGL14.EGL_NO_CONTEXT, ctxAttr, 0)
+    EGL14.eglMakeCurrent(dpy, surf, surf, ctx)
+// Pull core hardware descriptors directly from active driver configuration matrices
+    val renderer = GLES20.glGetString(GLES20.GL_RENDERER) ?: "Unknown GPU"
+    val vendor = GLES20.glGetString(GLES20.GL_VENDOR) ?: "Unknown Vendor"
+// Terminate EGL runtime pipeline safely to release graphic threads memory back to Android
+    EGL14.eglMakeCurrent(dpy, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT)
+    EGL14.eglDestroyContext(dpy, ctx)
+    EGL14.eglDestroySurface(dpy, surf)
+    EGL14.eglTerminate(dpy)
+    Pair(renderer, vendor)
 }
 
 enum class AppDestinations(
