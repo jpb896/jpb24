@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -46,8 +47,8 @@ import com.jpb.jpb24x.helpers.SocRepository
 import com.jpb.jpb24x.providers.AdvancedSocHardwareProvider
 import com.jpb.jpb24x.ui.theme.Jpb24Theme
 import com.jpb.jpb24x.ui.theme.Typography
-import com.jpb.jpb24x.viewmodels.SystemInfoViewModel
 import com.jpb.jpb24x.viewmodels.SocUiState
+import com.jpb.jpb24x.viewmodels.SystemInfoViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -73,16 +74,16 @@ fun Jpb24App() {
     val hardwareProvider = remember { AdvancedSocHardwareProvider() }
     val repository = remember { SocRepository(context.applicationContext, hardwareProvider) }
 
-    val socViewModel: SystemInfoViewModel = viewModel { SystemInfoViewModel(
-        repository,
-        hardwareProvider
-    ) }
+    val socViewModel: SystemInfoViewModel = viewModel {
+        SystemInfoViewModel(
+            repository,
+            hardwareProvider
+        )
+    }
 
-    // State holders for asynchronous GPU property fetching
     var gpuRenderer by remember { mutableStateOf("Fetching...") }
     var gpuVendor by remember { mutableStateOf("Fetching...") }
 
-    // Safe context query block isolates processing from the main composition stream
     LaunchedEffect(Unit) {
         val info = getGpuHardwareSpecsAsync()
         gpuRenderer = info.first
@@ -106,14 +107,11 @@ fun Jpb24App() {
             }
         }
     ) {
-        // Fix: Nesting a clean Scaffold inside the Adaptive layout acts as a dedicated inset provider.
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    // Consumes the correct top/bottom dimensions safely from the system framework
                     .padding(innerPadding)
-                    // Restores layout margin breathing room for all child cards
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -138,9 +136,15 @@ fun Jpb24App() {
                             }
                         }
                     }
+
                     "Hardware" -> {
                         val uiState by socViewModel.uiState.collectAsState()
 
+                        Text(
+                            text = "Processor",
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(start = 4.dp)
+                        )
                         Card(modifier = Modifier.fillMaxWidth()) {
                             Column(
                                 modifier = Modifier.padding(16.dp),
@@ -164,12 +168,11 @@ fun Jpb24App() {
                                             )
                                         }
                                         Text(
-                                            text = SoCHelper.calcCpuCoreCount()
-                                                .toString() + " cores",
+                                            text = SoCHelper.calcCpuCoreCount().toString() + " cores",
                                             style = Typography.headlineSmallEmphasized
                                         )
                                         Text(
-                                            text = state.info.processNode,
+                                            text = "Process: ${state.info.processNode} (${state.info.foundry})",
                                             style = Typography.bodyLargeEmphasized
                                         )
                                     }
@@ -182,8 +185,7 @@ fun Jpb24App() {
                                             style = Typography.displaySmallEmphasized
                                         )
                                         Text(
-                                            text = SoCHelper.calcCpuCoreCount()
-                                                .toString() + " cores",
+                                            text = SoCHelper.calcCpuCoreCount().toString() + " cores",
                                             style = Typography.headlineSmallEmphasized
                                         )
                                         Text(
@@ -294,28 +296,63 @@ fun Jpb24App() {
                                 )
                             }
                         }
+
+                        Text(
+                            text = "Graphics Processing Unit",
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(start = 4.dp)
+                        )
                         Card(modifier = Modifier.fillMaxWidth()) {
                             Column(
                                 modifier = Modifier.padding(16.dp),
                                 verticalArrangement = Arrangement.spacedBy(4.dp)
                             ) {
                                 Text(
-                                    text = gpuRenderer, // E.g., Adreno (TM) 740, Mali-G715
+                                    text = gpuRenderer,
                                     style = Typography.displaySmallEmphasized
                                 )
                                 Text(
-                                    text = "Vendor: $gpuVendor", // E.g., Qualcomm, ARM
+                                    text = "Vendor: $gpuVendor",
                                     style = Typography.bodyLargeEmphasized
                                 )
                             }
                         }
                     }
-                    else -> {
+
+                    else -> { // Software Tab
+                        val firmwareMeta = remember(context) { detectCustomFirmware() }
+
+                        // Base System Card
                         Card(modifier = Modifier.fillMaxWidth()) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                Text(text = "Android " + Build.VERSION.RELEASE, style = Typography.displaySmallEmphasized)
-                                Text(text = "custom firmware version (if one exists)", style = Typography.headlineSmallEmphasized)
-                                Text(text = "SPL or API level", style = Typography.bodyLargeEmphasized)
+                                Text(
+                                    text = "Android " + Build.VERSION.RELEASE,
+                                    style = Typography.displaySmallEmphasized
+                                )
+                                Text(
+                                    text = "API Level: ${Build.VERSION.SDK_INT}",
+                                    style = Typography.headlineSmallEmphasized
+                                )
+                                Text(
+                                    text = "Security Patch: ${Build.VERSION.SECURITY_PATCH}",
+                                    style = Typography.bodyLargeEmphasized
+                                )
+                            }
+                        }
+
+                        // Custom Firmware Card (Conditional Rendering)
+                        if (firmwareMeta != null) {
+                            Card(modifier = Modifier.fillMaxWidth()) {
+                                Column(modifier = Modifier.padding(16.dp)) {
+                                    Text(
+                                        text = firmwareMeta.title,
+                                        style = Typography.headlineSmallEmphasized
+                                    )
+                                    Text(
+                                        text = firmwareMeta.details,
+                                        style = Typography.displaySmallEmphasized
+                                    )
+                                }
                             }
                         }
                     }
@@ -325,28 +362,95 @@ fun Jpb24App() {
     }
 }
 
+/**
+ * Data wrapper mapping custom system property signatures back to Compose layout components.
+ */
+data class FirmwareMetadata(val title: String, val details: String)
+
+/**
+ * Decoupled processing engine. Evaluates platform property arguments cleanly outside UI rendering chains.
+ */
+/**
+ * Decoupled processing engine. Evaluates platform property arguments cleanly
+ * by accessing hidden system properties via runtime reflection.
+ */
+private fun detectCustomFirmware(): FirmwareMetadata? {
+    val manufacturer = Build.MANUFACTURER
+
+    if (manufacturer.equals("HUAWEI", ignoreCase = true)) {
+        val buildVersion = getSystemPropertyReflection("ro.huawei.build.version.incremental")
+        return if (buildVersion.isNotEmpty()) FirmwareMetadata(title = "EMUI", details = buildVersion) else null
+    }
+
+    if (manufacturer.equals("Xiaomi", ignoreCase = true)) {
+        val hyperOsCheck = getSystemPropertyReflection("ro.mi.os.version.incremental")
+        return if (hyperOsCheck.contains("OS", ignoreCase = true)) {
+            FirmwareMetadata(title = "HyperOS", details = hyperOsCheck)
+        } else {
+            val miuiCheck = getSystemPropertyReflection("ro.build.version.incremental")
+            FirmwareMetadata(title = "MIUI", details = miuiCheck)
+        }
+    }
+
+    if (manufacturer.equals("Amazon", ignoreCase = true)) {
+        val fireOsCheck = getSystemPropertyReflection("ro.build.mktg.fireos").replace("Fire OS ", "")
+        return if (fireOsCheck.isNotEmpty()) FirmwareMetadata(title = "FireOS", details = fireOsCheck) else null
+    }
+
+    val caesiumCheck = getSystemPropertyReflection("ro.caesium.version")
+    if (caesiumCheck.isNotEmpty()) {
+        return FirmwareMetadata(title = "CaesiumOS", details = caesiumCheck)
+    }
+
+    // Corresponds to legacy firmwareCard.visibility = View.GONE
+    return null
+}
+
+/**
+ * Invokes the hidden android.os.SystemProperties class through low-level Java Reflection.
+ * This completely removes the need for an external 'SystemPropertiesProxy' file dependency.
+ */
+@SuppressLint("PrivateApi")
+private fun getSystemPropertyReflection(key: String): String {
+    return try {
+        val systemPropertiesClass = Class.forName("android.os.SystemProperties")
+        val getMethod = systemPropertiesClass.getMethod("get", String::class.java)
+        val result = getMethod.invoke(null, key) as? String
+        result?.trim() ?: ""
+    } catch (_: Exception) {
+        ""
+    }
+}
+
 private suspend fun getGpuHardwareSpecsAsync(): Pair<String, String> = withContext(Dispatchers.Default) {
     val dpy = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY)
     val vers = IntArray(2)
     EGL14.eglInitialize(dpy, vers, 0, vers, 1)
-    val configAttr = intArrayOf(EGL14.EGL_RENDERABLE_TYPE, EGL14.EGL_OPENGL_ES2_BIT,EGL14.EGL_RED_SIZE, 8,EGL14.EGL_GREEN_SIZE, 8,EGL14.EGL_BLUE_SIZE, 8,EGL14.EGL_NONE)
+
+    val configAttr = intArrayOf(
+        EGL14.EGL_RENDERABLE_TYPE, EGL14.EGL_OPENGL_ES2_BIT,
+        EGL14.EGL_RED_SIZE, 8, EGL14.EGL_GREEN_SIZE, 8, EGL14.EGL_BLUE_SIZE, 8,
+        EGL14.EGL_NONE
+    )
     val configs = arrayOfNulls<android.opengl.EGLConfig>(1)
     val numConfig = IntArray(1)
     EGL14.eglChooseConfig(dpy, configAttr, 0, configs, 0, 1, numConfig, 0)
     val config = configs[0]
+
     val surfAttr = intArrayOf(EGL14.EGL_WIDTH, 1, EGL14.EGL_HEIGHT, 1, EGL14.EGL_NONE)
     val surf = EGL14.eglCreatePbufferSurface(dpy, config, surfAttr, 0)
     val ctxAttr = intArrayOf(EGL14.EGL_CONTEXT_CLIENT_VERSION, 2, EGL14.EGL_NONE)
     val ctx = EGL14.eglCreateContext(dpy, config, EGL14.EGL_NO_CONTEXT, ctxAttr, 0)
+
     EGL14.eglMakeCurrent(dpy, surf, surf, ctx)
-// Pull core hardware descriptors directly from active driver configuration matrices
     val renderer = GLES20.glGetString(GLES20.GL_RENDERER) ?: "Unknown GPU"
     val vendor = GLES20.glGetString(GLES20.GL_VENDOR) ?: "Unknown Vendor"
-// Terminate EGL runtime pipeline safely to release graphic threads memory back to Android
+
     EGL14.eglMakeCurrent(dpy, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT)
     EGL14.eglDestroyContext(dpy, ctx)
     EGL14.eglDestroySurface(dpy, surf)
     EGL14.eglTerminate(dpy)
+
     Pair(renderer, vendor)
 }
 
