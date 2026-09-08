@@ -21,7 +21,7 @@ class SocRepository(
             val mappedData = socList.associateBy { it.socId.uppercase() }
             socMap = mappedData
             mappedData
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             emptyMap()
         }
     }

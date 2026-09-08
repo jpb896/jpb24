@@ -362,25 +362,6 @@ fun Jpb24App() {
     }
 }
 
-/**
- * Data wrapper mapping custom system property signatures back to Compose layout components.
- */
-/**
- * Invokes the hidden android.os.SystemProperties class through low-level Java Reflection.
- * This completely removes the need for an external 'SystemPropertiesProxy' file dependency.
- */
-@SuppressLint("PrivateApi")
-private fun getSystemPropertyReflection(key: String): String {
-    return try {
-        val systemPropertiesClass = Class.forName("android.os.SystemProperties")
-        val getMethod = systemPropertiesClass.getMethod("get", String::class.java)
-        val result = getMethod.invoke(null, key) as? String
-        result?.trim() ?: ""
-    } catch (_: Exception) {
-        ""
-    }
-}
-
 private suspend fun getGpuHardwareSpecsAsync(): Pair<String, String> = withContext(Dispatchers.Default) {
     val dpy = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY)
     val vers = IntArray(2)

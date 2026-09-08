@@ -33,7 +33,7 @@ object CustomFirmwareDetectionHelper {
 
             // If a system property key from the map exists on the device, return it immediately
             if (buildVersion.isNotEmpty()) {
-                return FirmwareMetadata(title = "$romName", details = buildVersion)
+                return FirmwareMetadata(title = romName, details = buildVersion)
             }
         }
 
