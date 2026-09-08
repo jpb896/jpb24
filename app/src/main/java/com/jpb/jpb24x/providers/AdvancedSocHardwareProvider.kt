@@ -59,10 +59,12 @@ class AdvancedSocHardwareProvider : SocHardwareProvider {
 
         // Translate known low-level Qualcomm codenames to commercial SoC IDs
         when (clean) {
+            "TRINKET" -> return "SM6125"
+            "LAHAINA" -> return "SM8350"
             "BLAIR", "HOLI" -> return "SM6375"   // Snapdragon 695 5G / 4 Gen 1 platform
             "BENGAL"        -> return "SM6115"   // Snapdragon 662 / 460
             "KHADGE"        -> return "SM4350"   // Snapdragon 480
-            "TARO"          -> return "SM8450"   // Snapdragon 8 Gen 1
+            "TARO", "WAIPIO"          -> return "SM8450"   // Snapdragon 8 Gen 1
             "CAPE"          -> return "SM8475"   // Snapdragon 8+ Gen 1
             "KALAMA"        -> return "SM8550"   // Snapdragon 8 Gen 2
             "PINEAPPLE"     -> return "SM8650"   // Snapdragon 8 Gen 3
