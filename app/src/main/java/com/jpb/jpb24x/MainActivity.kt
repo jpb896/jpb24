@@ -388,7 +388,11 @@ private fun detectCustomFirmware(): FirmwareMetadata? {
             FirmwareMetadata(title = "HyperOS", details = hyperOsCheck)
         } else {
             val miuiCheck = getSystemPropertyReflection("ro.build.version.incremental")
+            if (miuiCheck.contains("XM", ignoreCase = true)) {
             FirmwareMetadata(title = "MIUI", details = miuiCheck)
+        } else {
+                null
+            }
         }
     }
 
