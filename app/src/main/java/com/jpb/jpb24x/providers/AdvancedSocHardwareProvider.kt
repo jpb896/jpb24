@@ -20,10 +20,12 @@ class AdvancedSocHardwareProvider : SocHardwareProvider {
         // 3. Last resort: Parse /proc/cpuinfo for the Hardware string
         getSocFromCpuInfo()?.let { candidates.add(it) }
 
+
         // Clean, normalize, and filter empty strings
         return candidates
-            .map { it.trim().uppercase() }
+            .map { cleanAndNormalizeSocId(it) }
             .filter { it.isNotEmpty() && it != "UNKNOWN" }
+            .distinct()
     }
 
     private fun getSystemProperty(key: String): String? {
@@ -50,5 +52,25 @@ class AdvancedSocHardwareProvider : SocHardwareProvider {
         } catch (_: Exception) {
             null
         }
+    }
+
+    private fun cleanAndNormalizeSocId(rawId: String): String {
+        var clean = rawId.trim().uppercase()
+
+        // Translate known low-level Qualcomm codenames to commercial SoC IDs
+        when (clean) {
+            "BLAIR", "HOLI" -> return "SM6375"   // Snapdragon 695 5G / 4 Gen 1 platform
+            "BENGAL"        -> return "SM6115"   // Snapdragon 662 / 460
+            "KHADGE"        -> return "SM4350"   // Snapdragon 480
+            "TARO"          -> return "SM8450"   // Snapdragon 8 Gen 1
+            "CAPE"          -> return "SM8475"   // Snapdragon 8+ Gen 1
+            "KALAMA"        -> return "SM8550"   // Snapdragon 8 Gen 2
+            "PINEAPPLE"     -> return "SM8650"   // Snapdragon 8 Gen 3
+        }
+
+        if (clean.contains("MEDIATEK") || clean.contains("MTK")) {
+            clean = clean.replace("MEDIATEK", "").replace("MTK", "").replace("(", "").replace(")", "").trim()
+        }
+        return clean
     }
 }
